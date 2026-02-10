@@ -52,6 +52,27 @@ header {
     color: #ff4444;
 }
 
+.server-config {
+    flex: 1;
+    margin: 0 15px;
+}
+
+#server-ip {
+    width: 100%;
+    background: #0d0d0d;
+    border: 1px solid #333;
+    color: var(--text);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+#server-ip:focus {
+    border-color: var(--accent);
+    outline: none;
+}
+
 .status.connected {
     color: #44ff44;
 }

@@ -46,7 +46,7 @@ async function updateSetting(section, key, value) {
     const valToSend = (typeof value === 'boolean') ? (value ? 1 : 0) : value;
 
     try {
-        await fetch('/api/set', {
+        await fetch(getApiUrl('/api/set'), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
