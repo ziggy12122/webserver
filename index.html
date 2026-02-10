@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sinz External</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#1a1a1a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">SINZ <span>PRIVATE</span></div>
+            <div class="status" id="connection-status">Disconnected</div>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="aimbot">AIMBOT</button>
+            <button class="tab-btn" data-tab="visuals">VISUALS</button>
+            <button class="tab-btn" data-tab="rage">RAGE</button>
+        </nav>
+
+        <main class="content">
+            <!-- AIMBOT TAB -->
+            <div id="aimbot" class="tab-content active">
+                <div class="card">
+                    <div class="card-header">MAIN</div>
+                    <div class="control-group">
+                        <label>Enabled</label>
+                        <label class="switch">
+                            <input type="checkbox" id="Aimbot_Enabled" onchange="updateSetting('Aimbot', 'Enabled', this.checked)">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="control-group">
+                        <label>Team Check</label>
+                        <label class="switch">
+                            <input type="checkbox" id="Aimbot_TeamCheck" onchange="updateSetting('Aimbot', 'TeamCheck', this.checked)">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="control-group">
+                        <label>Visible Check</label>
+                        <label class="switch">
+                            <input type="checkbox" id="Aimbot_VisibleCheck" onchange="updateSetting('Aimbot', 'VisibleCheck', this.checked)">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">SETTINGS</div>
+                    <div class="control-group">
+                        <label>Smoothness</label>
+                        <input type="range" id="Aimbot_Smoothness" min="1" max="50" step="1" oninput="updateSetting('Aimbot', 'Smoothness', this.value)">
+                    </div>
+                    <div class="control-group">
+                        <label>FOV Size</label>
+                        <input type="range" id="Aimbot_FOVSize" min="10" max="800" step="10" oninput="updateSetting('Aimbot', 'FOVSize', this.value)">
+                    </div>
+                    <div class="control-group">
+                        <label>Draw FOV</label>
+                        <label class="switch">
+                            <input type="checkbox" id="Aimbot_DrawFOV" onchange="updateSetting('Aimbot', 'DrawFOV', this.checked)">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="control-group">
+                        <label>Fill FOV</label>
+                        <label class="switch">
+                            <input type="checkbox" id="Aimbot_FOVFilled" onchange="updateSetting('Aimbot', 'FOVFilled', this.checked)">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VISUALS TAB -->
+            <div id="visuals" class="tab-content">
+                <div class="card">
+                    <div class="card-header">ESP</div>
+                    <div class="control-group">
+                        <label>Enabled</label>
+                        <label class="switch">
+                            <input type="checkbox" id="Visuals_Enabled" onchange="updateSetting('Visuals', 'Enabled', this.checked)">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="control-group">
+                        <label>Box</label>
+                        <label class="switch">
+                            <input type="checkbox" id="Visuals_Box" onchange="updateSetting('Visuals', 'Box', this.checked)">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="control-group">
+                        <label>Names</label>
+                        <label class="switch">
+                            <input type="checkbox" id="Visuals_Names" onchange="updateSetting('Visuals', 'Names', this.checked)">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="control-group">
+                        <label>Health Bar</label>
+                        <label class="switch">
+                            <input type="checkbox" id="Visuals_HealthBar" onchange="updateSetting('Visuals', 'HealthBar', this.checked)">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="control-group">
+                        <label>Skeletons</label>
+                        <label class="switch">
+                            <input type="checkbox" id="Visuals_Skeletons" onchange="updateSetting('Visuals', 'Skeletons', this.checked)">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="control-group">
+                        <label>Tracers</label>
+                        <label class="switch">
+                            <input type="checkbox" id="Visuals_Tracers" onchange="updateSetting('Visuals', 'Tracers', this.checked)">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RAGE TAB -->
+            <div id="rage" class="tab-content">
+                <div class="card">
+                    <div class="card-header">RAGE</div>
+                    <div class="control-group">
+                        <label>Enabled</label>
+                        <label class="switch">
+                            <input type="checkbox" id="Rage_Enabled" onchange="updateSetting('Rage', 'Enabled', this.checked)">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="control-group">
+                        <label>Spinbot</label>
+                        <label class="switch">
+                            <input type="checkbox" id="Rage_Spinbot" onchange="updateSetting('Rage', 'Spinbot', this.checked)">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="control-group">
+                        <label>Anti-Aim</label>
+                        <label class="switch">
+                            <input type="checkbox" id="Rage_AntiAim" onchange="updateSetting('Rage', 'AntiAim', this.checked)">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="control-group">
+                        <label>Resolver</label>
+                        <label class="switch">
+                            <input type="checkbox" id="Rage_Resolver" onchange="updateSetting('Rage', 'Resolver', this.checked)">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
